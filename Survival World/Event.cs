@@ -1,4 +1,6 @@
-﻿namespace Survival_World
+﻿using System;
+
+namespace Survival_World
 {
     public class Events
     {
@@ -16,11 +18,11 @@
                 (
                     player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
                     nameEvent: "Случайная встреча",
-                    descEvent: "Вы встретили купцов",
+                    descEvent: "К вам приближается мутированный жук. Он размером с вашу голову и с 30хп.\n",
 
                     garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
                     {
-                        { "Experience", 100 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                        { "Experience", 50 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
                     },
 
                     variantsList: new List<Variant>()
@@ -28,18 +30,248 @@
                         new Variant
                         (
                             player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
-                            descVariant: "-Хочешь денег, бедолага?",
+                            descVariant: "Нажми 1 – сразиться с жуком; или 2 – убежать от жука заплатив 130 монет.\n",
                             positiveAnswerEffect: new Dictionary<string, int>()
                             {
-                                { "Money", 100 }
+                                { "Money", 100 }, {"Health",-30}
                             },
                             negativeAnswerEffect: new Dictionary<string, int>()
                             {
-                                { "Health", -10 }
+                                { "Money", -130 }
                             }
                         )
                     }
-                )
+                ),
+
+
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Находка",
+                    descEvent: "Кажется, под тем кустом что-то есть. Проверишь?",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 30 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – да; или 2 – нет",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 100 }, { "Health", 60 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Утоление жажды",
+                    descEvent: "Тебе очень захотелось пить, и ты видишь перед собой небольшое озеро. Попьешь из него воды?",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – да; или 2 – нет",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                               { "Health", -10 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                               { "Health", -10 }
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Бред больного",
+                    descEvent: "Кажется, ты начинаешь бредить. Возвращайся в бункер и отдохни.",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – Вернуться в бункер; или 2 – Остаться на поверхности",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Health", 30 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Health", -20 }
+
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Радиация",
+                    descEvent: "Упс, ты в зоне повышенной радиации, может ты уже наденешь защитный костюм?",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – да; или 2 – нет",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 50 }, { "Health", 20 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Health", -20 }
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent:"Избавление от лишнего",
+                    descEvent: "Ой бедолага, ты ели как идешь, у тебя слишком тяжелый рюкзак. Выкинь что-нибудь не нужное.",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – выкинуть аптечку или 2 – выкинуть мангал для шашлыков",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Health", -30 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                 { "Money", 65 }, { "Health", 15 }
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Погода",
+                    descEvent: "Аааа начался радиационный дождь. Впереди есть пещера, укроешься в ней от дождя??",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – да; или 2 – нет",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 20 }, { "Health", 20 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                 { "Health", -20 }
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Вражеская техника",
+                    descEvent: "Слышишь этот звук. Это самолет ИИ. Нужно срочно спрятаться в бункер, пока они тебя не увидели.",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                        { "Experience", 20 } // В таком формате передаются параметры для изменения { "Что", На сколько }. Существующие параметры можно посмотреть в switch на строке 111
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – Спрятаться в бункере; или 2 – Остаться на поверхности",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 100 }, { "Health", 30 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 50 }, { "Health", -30 }
+                            }
+                        ),
+                    }
+                ),
+                 new Event // Создаём событие (все атрибуты обязательно иницивлизировать, но garantEffect, variantsList, positiveAnswerEffect и negativeAnswerEffect можно оставлять пустыми)
+                (
+                    player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                    nameEvent: "Случайная встреча",
+                    descEvent: "К вам приближается мутант. Возможно, когда-то он был человеком…   или собакой, или лосем, хмм. Он такой здоровый и с 50хп.Что будешь делать?",
+
+                    garantEffect: new Dictionary<string, int>() // Список гарантированных эффектов после события
+                    {
+                    
+                    },
+
+                    variantsList: new List<Variant>()
+                    {
+                        new Variant
+                        (
+                            player: Player, // Передаётся обязательно чтобы потом внутри можно было с ним взаимодействовать
+                            descVariant: "Нажми 1 – сразиться с мутантом; или 2 – убежать от мутанта заплатив 230 монет.",
+                            positiveAnswerEffect: new Dictionary<string, int>()
+                            {
+                                { "Money", 200 }, { "Health", -50 },  { "Experience", 140 }
+                            },
+                            negativeAnswerEffect: new Dictionary<string, int>()
+                            {
+                                  { "Money", -230 }, { "Experience", 20 }
+                            }
+                        ),
+                    }
+                ),
+
+
+
             };
         }
 
@@ -157,7 +389,7 @@
                 if (String.IsNullOrWhiteSpace(getAnswer)) Console.WriteLine(" Что-ж, нормально отвечать ты не хочешь..."); // Если игрок ничего не ввёл (по сути промолчал) - выведет это
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine();
-                if (getAnswer == "да")
+                if (getAnswer == "1")
                 {
                     SummonEffect(PositiveAnswerEffect); // Применяются полжительные эффекты после ответа ДА
                 } else

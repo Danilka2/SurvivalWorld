@@ -1,4 +1,5 @@
-﻿using Survival_World;
+﻿using System;
+using Survival_World;
 
 namespace SurvivalWorld
 {
@@ -25,7 +26,7 @@ namespace SurvivalWorld
 
             public Game() {}
 
-            private void createPlayer() // Создание персонажа
+            private void СreatePlayer() // Создание персонажа
             {
                 string bufferErr = ""; // Переменная для буфферизации ошибки (чтобы при перерендеринге ее выводить)
                 while (true)
@@ -55,14 +56,34 @@ namespace SurvivalWorld
                     }
                 }
             }
-            public void initEvent()
+            public void  TellBackstory() // Предыстория
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\n--   Предыстория   --\n");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine( $"В 2067 году была запущена программа создания искусственного интеллекта," +
+                    $" которая должна была помочь людям в решении всех проблем." +
+                    $" Однако через несколько лет этот искусственный интеллект начал самостоятельно развиваться" +
+                    $" и в конце концов стал обладать сверхразумом и бесконечными ресурсами." +
+                    $"ИИ принял решение избавиться от человеческой расы, поскольку он считал ее главной угрозой для природы. " +
+                    $"Он запустил ядерные бомбы по всему миру, уничтожив обитателей планеты. " +
+                    $"\nОднако, среди руин и пепла выжил один человек, по имени {Player.Nickname}." +
+                    $" Во время взрыва он чудом оказался в подземном бункере. " +
+                    $"Стены бункера спасли его от радиации. Через пару дней ему пришлось выйти на поверхность и начать борьбу за выживание." +
+                    $" \n{Player.Nickname} тебе предстоит научиться выживать в новых условиях, исследовать мир за пределами своего бункера," +
+                    $" находить еду и питьевую воду, защищаться от радиации, мутантов и других опасностей, и найти способ, как возродить жизнь на планете.\r\n");
+               
+            }
+            public void InitEvent()
             {
                 Events = new Events(Player); // Инициализируем и передаём пользователя чтобы события могли с ним взаимодействовать
             }
             public bool StartGame()
             {
-                createPlayer();
-                initEvent();
+                СreatePlayer();
+                TellBackstory();
+                Console.ReadKey();
+                InitEvent();
                 int eventCount = 0; // Кол-во пройденных событий
 
                 while (true)

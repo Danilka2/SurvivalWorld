@@ -1,0 +1,15 @@
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\bin\Debug\net6.0\Survival World.exe
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\bin\Debug\net6.0\Survival World.deps.json
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\bin\Debug\net6.0\Survival World.runtimeconfig.json
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\bin\Debug\net6.0\Survival World.dll
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\bin\Debug\net6.0\Survival World.pdb
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.csproj.AssemblyReference.cache
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.AssemblyInfoInputs.cache
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.AssemblyInfo.cs
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.csproj.CoreCompileInputs.cache
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.dll
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\refint\Survival World.dll
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.pdb
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\Survival World.genruntimeconfig.cache
+C:\Users\Anastasia\Desktop\project\SurvivalWorld\Survival World\obj\Debug\net6.0\ref\Survival World.dll

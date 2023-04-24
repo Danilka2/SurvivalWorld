@@ -1,4 +1,6 @@
-﻿namespace Survival_World
+﻿using System;
+
+namespace Survival_World
 {
     public class Player
     {
